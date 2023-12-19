@@ -43,9 +43,11 @@ int main() {
     }
 
     // Counting the number of elements equal to zero
-    int zeroCount = count_if(matrix.begin(), matrix.end(), [](const vector<int>& row) {
-        return count(row.begin(), row.end(), 0) > 0;
-        });
+    int zeroCount = 0;
+
+    for (auto&row : matrix) {
+        zeroCount += count(row.begin(), row.end(), 0);
+    }
 
     cout << "The number of elements that are zero: " << zeroCount << endl;
 
